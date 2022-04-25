@@ -24,7 +24,18 @@ class TicTacToeBoard:
             raise ValueError
 
     def check_win(self, player):
-        pass
+
+        diag_win1 = self._board_state[0][0] == self._board_state[1][1] == self._board_state[2][2]
+        diag_win2 = self._board_state[0][2] == self._board_state[1][1] == self._board_state[2][0]
+
+        for i in range(0, 3):
+            horizontal_win = np.all(self._board_state[i] == player)
+            vertical_win = np.all(self._board_state[:, i] == player)
+
+            if horizontal_win or vertical_win or diag_win1 or diag_win2:
+                return True
+
+        return False
 
     def __repr__(self):
         return "+-+-+-+\n" + \
@@ -41,8 +52,8 @@ class TicTacToeBoard:
 
 board = TicTacToeBoard()
 print(board)
-board.mark(0, 0)
+board.mark(0, 2)
+board.mark(1, 1)
+board.mark(2, 0)
 print(board)
-board.next_move()
-board.mark(0, 1)
-print(board)
+print(board.check_win('X'))
