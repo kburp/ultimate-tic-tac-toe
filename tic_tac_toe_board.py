@@ -6,20 +6,21 @@ import numpy as np
 
 class TicTacToeBoard:
 
+    current_move = "X"
+
     def __init__(self):
-        self._current_move = "X"
         self._board_state = np.array([
             [' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' ']])
 
     def next_move(self):
-        if self._current_move == "X":
-            self._current_move = "O"
+        if self.current_move == "X":
+            self.current_move = "O"
         else:
-            self._current_move = "X"
+            self.current_move = "X"
 
     def mark(self, row, col):
         if self._board_state[row][col] == " ":
-            self._board_state[row][col] = self._current_move
+            self._board_state[row][col] = self.current_move
         else:
             raise ValueError
 
@@ -49,11 +50,3 @@ class TicTacToeBoard:
             f"|{self._board_state[2][2]}|\n" + \
             "+-+-+-+"
 
-
-board = TicTacToeBoard()
-print(board)
-board.mark(0, 2)
-board.mark(1, 1)
-board.mark(2, 0)
-print(board)
-print(board.check_win('X'))
