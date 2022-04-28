@@ -7,3 +7,4 @@ class UltimateTicTacToeBoard:
 
     def __init__(self):
         pass
+    
