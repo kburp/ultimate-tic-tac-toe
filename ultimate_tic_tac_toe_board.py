@@ -40,8 +40,6 @@ class UltimateTicTacToeBoard:
             sub_board.board_state[2][2] = 'O'
             sub_board.won = True
 
-        print(sub_board.board_state)
-
     def check_win(self):
         boards = self.boards
         for i in range(0, 3):

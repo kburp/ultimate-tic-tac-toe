@@ -35,7 +35,6 @@ class TextController(UltimateTicTacToeController):
                 if (0 <= mark_position[0] <= 2) and (0 <= mark_position[1] <= 2):
                     sub_board.mark(
                         mark_position[0], mark_position[1], self._ultimate_tic_tac_toe_board.current_move)
-                    print(self._ultimate_tic_tac_toe_board.current_move)
                     if sub_board.check_win(self._ultimate_tic_tac_toe_board.current_move):
                         self._ultimate_tic_tac_toe_board.mark_win(sub_board)
                     return mark_position
