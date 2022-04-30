@@ -22,6 +22,7 @@ class TextView(UltimateTicTacToeView):
 
     def draw(self):
         print(self.board)
+        print(f"It is now {self.board.current_move}'s turn.")
 
 
 class GraphicalView(UltimateTicTacToeView):
