@@ -7,13 +7,19 @@ class TicTacToeBoard:
 
     def __init__(self):
         self._board_state = [[' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' ']]
-        self.won = False
+        self.move_count = 0
+        self.win_state = 0
 
     def mark(self, row, col, player):
         if self._board_state[row][col] == " ":
             self._board_state[row][col] = player
+            self.check_tie()
         else:
             raise ValueError
+
+    def check_tie(self):
+        if self.move_count == 9:
+            self.win_state = 1
 
     def check_win(self, player):
         for index, row in enumerate(self._board_state):

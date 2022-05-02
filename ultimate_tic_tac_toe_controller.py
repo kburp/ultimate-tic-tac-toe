@@ -53,7 +53,7 @@ class TextController(UltimateTicTacToeController):
                 sub_board = self._ultimate_tic_tac_toe_board.boards[sub_board_position[0]
                                                                     ][sub_board_position[1]]
                 if (0 <= sub_board_position[0] <= 2) and (0 <= sub_board_position[1] <= 2) and \
-                        sub_board.won == False:
+                        sub_board.win_state == 0:
                     return sub_board_position
                 raise ValueError
             except:

@@ -28,7 +28,7 @@ class UltimateTicTacToeBoard:
             sub_board.board_state[1][1] = 'X'
             sub_board.board_state[2][0] = 'X'
             sub_board.board_state[2][2] = 'X'
-            sub_board.won = True
+            sub_board.win_state = 'X'
         else:
             sub_board.board_state[0][0] = 'O'
             sub_board.board_state[0][1] = 'O'
@@ -38,19 +38,31 @@ class UltimateTicTacToeBoard:
             sub_board.board_state[2][0] = 'O'
             sub_board.board_state[2][1] = 'O'
             sub_board.board_state[2][2] = 'O'
-            sub_board.won = True
+            sub_board.win_state = 'O'
+
+    def check_board_availability(self, sub_board):
+        if isinstance(sub_board.win_state, str) or sub_board.win_state == 1:
+            return True
+        return False
+
+    def check_tie(self):
+        tie_status = []
+        for board_row in self.boards:
+            for board in board_row:
+                tie_status.append(board.win_state)
+        return set(tie_status) == 1
 
     def check_win(self):
         boards = self.boards
         for i in range(0, 3):
-            if boards[i][0].won == boards[i][1].won == boards[i][2].won == True:
-                return True
-            if boards[0][i].won == boards[1][i].won == boards[2][i].won == True:
-                return True
-        if boards[0][0].won == boards[1][1].won == boards[2][2].won == True:
-            return True
-        if boards[0][2].won == boards[1][1].won == boards[2][0].won == True:
-            return True
+            if boards[i][0].win_state == boards[i][1].win_state == boards[i][2].win_state and isinstance(boards[i][0].win_state, str):
+                return boards[i][0].win_state
+            if boards[0][i].win_state == boards[1][i].win_state == boards[2][i].win_state and isinstance(boards[i][0].win_state, str):
+                return boards[0][i].win_state
+        if boards[0][0].win_state == boards[1][1].win_state == boards[2][2].win_state and isinstance(boards[i][0].win_state, str):
+            return boards[0][0].win_state
+        if boards[0][2].win_state == boards[1][1].win_state == boards[2][0].win_state and isinstance(boards[i][0].win_state, str):
+            return boards[0][2].win_state
         return False
 
     def __repr__(self):
