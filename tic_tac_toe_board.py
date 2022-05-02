@@ -17,6 +17,9 @@ class TicTacToeBoard:
         else:
             raise ValueError
 
+    def get_square(self, row, col):
+        return self.board_state[row][col]
+
     def check_tie(self):
         if self.move_count == 9:
             self.win_state = 1
