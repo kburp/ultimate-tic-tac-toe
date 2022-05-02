@@ -1,7 +1,6 @@
 """
 Unit tests for tic tac toe board.
 """
-
 import pytest
 from tic_tac_toe_board import TicTacToeBoard
 
@@ -69,16 +68,6 @@ board_states = [
 def game(request):
     """
     Create a sequence of moves representing a game for use in testing.
-    """
-    return request.param
-
-# add cases to this list
-board_reprs = []
-
-@pytest.fixture(params=board_reprs)
-def game_repr(request):
-    """
-    Create a representation of a sequence of moves for use in testing.
     """
     return request.param
 
