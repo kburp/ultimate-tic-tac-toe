@@ -13,7 +13,9 @@ class TicTacToeBoard:
     def mark(self, row, col, player):
         if self._board_state[row][col] == " ":
             self._board_state[row][col] = player
-            self.check_tie()
+            self.move_count += 1
+            if self.check_tie():
+                self.win_state = 1
         else:
             raise ValueError
 
@@ -21,8 +23,7 @@ class TicTacToeBoard:
         return self.board_state[row][col]
 
     def check_tie(self):
-        if self.move_count == 9:
-            self.win_state = 1
+        return self.move_count == 9
 
     def check_win(self, player):
         for index, row in enumerate(self._board_state):
@@ -41,6 +42,7 @@ class TicTacToeBoard:
     def board_state(self):
         return self._board_state
 
+    # delete this method?
     def __repr__(self):
         return "+-+-+-+\n" + \
             f"|{self._board_state[0][0]}|{self._board_state[0][1]}" + \
