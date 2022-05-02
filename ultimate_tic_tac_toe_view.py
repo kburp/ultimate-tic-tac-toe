@@ -20,9 +20,10 @@ class UltimateTicTacToeView(ABC):
 
 class TextView(UltimateTicTacToeView):
 
-    def draw(self):
+    def draw(self, sub_board_position):
         print(self.board)
         print(f"It is now {self.board.current_move}'s turn.")
+        print(f"Playing on board {sub_board_position}.")
 
 
 class GraphicalView(UltimateTicTacToeView):

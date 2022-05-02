@@ -36,7 +36,7 @@ def main():
 
         board.next_move()
 
-        textView.draw()
+        textView.draw(sub_board_position)
 
 
 if __name__ == "__main__":
