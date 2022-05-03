@@ -82,8 +82,97 @@ def game(request):
     return request.param
 
 
-# add cases to this list
-board_reprs = []
+board_reprs = [
+    ([],    "+-+-+-++-+-+-++-+-+-+\n"
+            "| | | || | | || | | |\n"
+            "+-+-+-++-+-+-++-+-+-+\n"
+            "| | | || | | || | | |\n"
+            "+-+-+-++-+-+-++-+-+-+\n"
+            "| | | || | | || | | |\n"
+            "+-+-+-++-+-+-++-+-+-+\n"
+            "+-+-+-++-+-+-++-+-+-+\n"
+            "| | | || | | || | | |\n"
+            "+-+-+-++-+-+-++-+-+-+\n"
+            "| | | || | | || | | |\n"
+            "+-+-+-++-+-+-++-+-+-+\n"
+            "| | | || | | || | | |\n"
+            "+-+-+-++-+-+-++-+-+-+\n"
+            "+-+-+-++-+-+-++-+-+-+\n"
+            "| | | || | | || | | |\n"
+            "+-+-+-++-+-+-++-+-+-+\n"
+            "| | | || | | || | | |\n"
+            "+-+-+-++-+-+-++-+-+-+\n"
+            "| | | || | | || | | |\n"
+            "+-+-+-++-+-+-++-+-+-+\n"),
+    ([(0, 0, 0, 0), (0, 0, 1, 1), (1, 1, 2, 1)],    "+-+-+-++-+-+-++-+-+-+\n"
+                                                    "|X| | || | | || | | |\n"
+                                                    "+-+-+-++-+-+-++-+-+-+\n"
+                                                    "| |O| || | | || | | |\n"
+                                                    "+-+-+-++-+-+-++-+-+-+\n"
+                                                    "| | | || | | || | | |\n"
+                                                    "+-+-+-++-+-+-++-+-+-+\n"
+                                                    "+-+-+-++-+-+-++-+-+-+\n"
+                                                    "| | | || | | || | | |\n"
+                                                    "+-+-+-++-+-+-++-+-+-+\n"
+                                                    "| | | || | | || | | |\n"
+                                                    "+-+-+-++-+-+-++-+-+-+\n"
+                                                    "| | | || |X| || | | |\n"
+                                                    "+-+-+-++-+-+-++-+-+-+\n"
+                                                    "+-+-+-++-+-+-++-+-+-+\n"
+                                                    "| | | || | | || | | |\n"
+                                                    "+-+-+-++-+-+-++-+-+-+\n"
+                                                    "| | | || | | || | | |\n"
+                                                    "+-+-+-++-+-+-++-+-+-+\n"
+                                                    "| | | || | | || | | |\n"
+                                                    "+-+-+-++-+-+-++-+-+-+\n"),
+    ([(0, 0, 0, 0), (0, 0, 3, 3), (1, 1, 1, 2), (1, 1, 3, 3), (2, 1, 0, 0), \
+        (2, 2, 3, 3)], \
+        "+-+-+-++-+-+-++-+-+-+\n"
+        "|O|O|O|| | | || | | |\n"
+        "+-+-+-++-+-+-++-+-+-+\n"
+        "|O| |O|| | | || | | |\n"
+        "+-+-+-++-+-+-++-+-+-+\n"
+        "|O|O|O|| | | || | | |\n"
+        "+-+-+-++-+-+-++-+-+-+\n"
+        "+-+-+-++-+-+-++-+-+-+\n"
+        "| | | ||X| |X|| | | |\n"
+        "+-+-+-++-+-+-++-+-+-+\n"
+        "| | | || |X| || | | |\n"
+        "+-+-+-++-+-+-++-+-+-+\n"
+        "| | | ||X| |X|| | | |\n"
+        "+-+-+-++-+-+-++-+-+-+\n"
+        "+-+-+-++-+-+-++-+-+-+\n"
+        "| | | ||X| | ||O|O|O|\n"
+        "+-+-+-++-+-+-++-+-+-+\n"
+        "| | | || | | ||O| |O|\n"
+        "+-+-+-++-+-+-++-+-+-+\n"
+        "| | | || | | ||O|O|O|\n"
+        "+-+-+-++-+-+-++-+-+-+\n"),
+    ([(0, 0, 0, 0), (0, 0, 2, 2), (2, 2, 1, 2), (1, 2, 1, 1), (1, 1, 1, 1), \
+        (1, 1, 0, 0), (0, 0, 1, 0), (1, 0, 2, 2), (2, 2, 0, 2), \
+        (0, 2, 1, 0)], \
+        "+-+-+-++-+-+-++-+-+-+\n"
+        "|X| | || | | || | | |\n"
+        "+-+-+-++-+-+-++-+-+-+\n"
+        "|X| | || | | ||O| | |\n"
+        "+-+-+-++-+-+-++-+-+-+\n"
+        "| | |O|| | | || | | |\n"
+        "+-+-+-++-+-+-++-+-+-+\n"
+        "+-+-+-++-+-+-++-+-+-+\n"
+        "| | | ||O| | || | | |\n"
+        "+-+-+-++-+-+-++-+-+-+\n"
+        "| | | || |X| || |O| |\n"
+        "+-+-+-++-+-+-++-+-+-+\n"
+        "| | |O|| | | || | | |\n"
+        "+-+-+-++-+-+-++-+-+-+\n"
+        "+-+-+-++-+-+-++-+-+-+\n"
+        "| | | || | | || | |X|\n"
+        "+-+-+-++-+-+-++-+-+-+\n"
+        "| | | || | | || | |X|\n"
+        "+-+-+-++-+-+-++-+-+-+\n"
+        "| | | || | | || | | |\n"
+        "+-+-+-++-+-+-++-+-+-+\n"),
+]
 
 @pytest.fixture(params=board_reprs)
 def game_repr(request):
@@ -101,7 +190,7 @@ def test_next_move(board): # pylint: disable=redefined-outer-name
     Args:
         board: The UltimateTicTacToeBoard instance to use.
     """
-    for i in range(0, 20):
+    for i in range(0, 81):
         if i % 2 == 0:
             assert board.current_move == "X"
         else:
@@ -130,32 +219,52 @@ def test_check_board_availability(board, row, col, board_availability): # pylint
         assert not board.check_board_availability(sub_board)
 
 
-def test_check_tie(board):
+def test_check_tie(board): # pylint: disable=redefined-outer-name
     """
     Add docstring.
     """
     pass
 
 
-def test_check_win(board, game):
+def test_check_win(board, game): # pylint: disable=redefined-outer-name
     """
     Test that UltimateTicTacToeBoard correctly determines a win.
 
     Args:
         board: The UltimateTicTacToeBoard instance to use.
         game: A tuple where the first element is a list representing the win
-            states of each sub-board in the UltimateTicTacToeBoard, and the second
-            element is a string or boolean representing the expected output of the
-            check_win function for that particular board win state configuration.
+            states of each sub-board in the UltimateTicTacToeBoard, and the
+            second element is a string or boolean representing the expected
+            output of the check_win function for that particular board win
+            state configuration.
     """
     assert not board.check_win()
-    win_states, expected_output = game
-    for i, row in enumerate(win_states):
+    win_states, expected_output = game # pylint: disable=redefined-outer-name
+    for i, row in enumerate(win_states): # pylint: disable=redefined-outer-name
         for j, state in enumerate(row):
             sub_board = board.get_board(i, j)
             sub_board.win_state = state
     assert board.check_win() == expected_output
 
 
-# test repr without mark win
-# test repr with mark win
+def test_repr(board, game_repr): # pylint: disable=redefined-outer-name
+    """
+    Test that the string representation of the board at various stages of the
+    game is correct.
+
+    Args:
+        board: The UltimateTicTacToeBoard instance to use.
+        game_repr: A tuple where the first element is a list of tuples
+            containing row and column indices to mark a move, and the second
+            element is a string representing the expected output of the repr
+            method after those moves are made.
+    """
+    moves, board_repr = game_repr
+    for board_row, board_column, row, col in moves: # pylint: disable=redefined-outer-name
+        sub_board = board.get_board(board_row, board_column)
+        if row == col == 3:
+            board.mark_win(sub_board)
+        else:
+            sub_board.mark(row, col, board.current_move)
+            board.next_move()
+    assert str(board) == board_repr
