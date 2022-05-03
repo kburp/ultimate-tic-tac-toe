@@ -63,11 +63,11 @@ class UltimateTicTacToeBoard:
         for i in range(0, 3):
             if boards[i][0].win_state == boards[i][1].win_state == boards[i][2].win_state and isinstance(boards[i][0].win_state, str):
                 return boards[i][0].win_state
-            if boards[0][i].win_state == boards[1][i].win_state == boards[2][i].win_state and isinstance(boards[i][0].win_state, str):
+            if boards[0][i].win_state == boards[1][i].win_state == boards[2][i].win_state and isinstance(boards[0][i].win_state, str):
                 return boards[0][i].win_state
-        if boards[0][0].win_state == boards[1][1].win_state == boards[2][2].win_state and isinstance(boards[i][0].win_state, str):
+        if boards[0][0].win_state == boards[1][1].win_state == boards[2][2].win_state and isinstance(boards[1][1].win_state, str):
             return boards[0][0].win_state
-        if boards[0][2].win_state == boards[1][1].win_state == boards[2][0].win_state and isinstance(boards[i][0].win_state, str):
+        if boards[0][2].win_state == boards[1][1].win_state == boards[2][0].win_state and isinstance(boards[1][1].win_state, str):
             return boards[0][2].win_state
         return False
 
