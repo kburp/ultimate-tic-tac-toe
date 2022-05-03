@@ -43,6 +43,7 @@ win_states = [
     ((0, "O", "X"), (0, 0, 1), ("X", "X", 0))
 ]
 
+
 @pytest.fixture(params=win_states)
 def board_availability(request):
     """
@@ -73,6 +74,7 @@ board_states = [
     ([(0, "X", 0), (1, 1, "O"), ("O", "O", "X")], False),
     ([("O", 1, "O"), (0, "O", "X"), (0, 0, 0)], False)
 ]
+
 
 @pytest.fixture(params=board_states)
 def game(request):
@@ -125,8 +127,8 @@ board_reprs = [
                                                     "+-+-+-++-+-+-++-+-+-+\n"
                                                     "| | | || | | || | | |\n"
                                                     "+-+-+-++-+-+-++-+-+-+\n"),
-    ([(0, 0, 0, 0), (0, 0, 3, 3), (1, 1, 1, 2), (1, 1, 3, 3), (2, 1, 0, 0), \
-        (2, 2, 3, 3)], \
+    ([(0, 0, 0, 0), (0, 0, 3, 3), (1, 1, 1, 2), (1, 1, 3, 3), (2, 1, 0, 0),
+        (2, 2, 3, 3)],
         "+-+-+-++-+-+-++-+-+-+\n"
         "|O|O|O|| | | || | | |\n"
         "+-+-+-++-+-+-++-+-+-+\n"
@@ -148,9 +150,9 @@ board_reprs = [
         "+-+-+-++-+-+-++-+-+-+\n"
         "| | | || | | ||O|O|O|\n"
         "+-+-+-++-+-+-++-+-+-+\n"),
-    ([(0, 0, 0, 0), (0, 0, 2, 2), (2, 2, 1, 2), (1, 2, 1, 1), (1, 1, 1, 1), \
-        (1, 1, 0, 0), (0, 0, 1, 0), (1, 0, 2, 2), (2, 2, 0, 2), \
-        (0, 2, 1, 0)], \
+    ([(0, 0, 0, 0), (0, 0, 2, 2), (2, 2, 1, 2), (1, 2, 1, 1), (1, 1, 1, 1),
+        (1, 1, 0, 0), (0, 0, 1, 0), (1, 0, 2, 2), (2, 2, 0, 2),
+        (0, 2, 1, 0)],
         "+-+-+-++-+-+-++-+-+-+\n"
         "|X| | || | | || | | |\n"
         "+-+-+-++-+-+-++-+-+-+\n"
@@ -174,6 +176,7 @@ board_reprs = [
         "+-+-+-++-+-+-++-+-+-+\n"),
 ]
 
+
 @pytest.fixture(params=board_reprs)
 def game_repr(request):
     """
@@ -182,7 +185,7 @@ def game_repr(request):
     return request.param
 
 
-def test_next_move(board): # pylint: disable=redefined-outer-name
+def test_next_move(board):  # pylint: disable=redefined-outer-name
     """
     Test that after calling the next_move method, the current player is
     updated.
@@ -198,7 +201,7 @@ def test_next_move(board): # pylint: disable=redefined-outer-name
         board.next_move()
 
 
-def test_check_board_availability(board, row, col, board_availability): # pylint: disable=redefined-outer-name
+def test_check_board_availability(board, row, col, board_availability):  # pylint: disable=redefined-outer-name
     """
     Test that UltimateTicTacToeBoard correctly determines whether or not
     a sub-board is available to play on.
@@ -219,14 +222,14 @@ def test_check_board_availability(board, row, col, board_availability): # pylint
         assert not board.check_board_availability(sub_board)
 
 
-def test_check_tie(board): # pylint: disable=redefined-outer-name
+def test_check_tie(board, game):  # pylint: disable=redefined-outer-name
     """
     Add docstring.
     """
     pass
 
 
-def test_check_win(board, game): # pylint: disable=redefined-outer-name
+def test_check_win(board, game):  # pylint: disable=redefined-outer-name
     """
     Test that UltimateTicTacToeBoard correctly determines a win.
 
@@ -239,15 +242,15 @@ def test_check_win(board, game): # pylint: disable=redefined-outer-name
             state configuration.
     """
     assert not board.check_win()
-    win_states, expected_output = game # pylint: disable=redefined-outer-name
-    for i, row in enumerate(win_states): # pylint: disable=redefined-outer-name
+    win_states, expected_output = game  # pylint: disable=redefined-outer-name
+    for i, row in enumerate(win_states):  # pylint: disable=redefined-outer-name
         for j, state in enumerate(row):
             sub_board = board.get_board(i, j)
             sub_board.win_state = state
     assert board.check_win() == expected_output
 
 
-def test_repr(board, game_repr): # pylint: disable=redefined-outer-name
+def test_repr(board, game_repr):  # pylint: disable=redefined-outer-name
     """
     Test that the string representation of the board at various stages of the
     game is correct.
@@ -260,7 +263,7 @@ def test_repr(board, game_repr): # pylint: disable=redefined-outer-name
             method after those moves are made.
     """
     moves, board_repr = game_repr
-    for board_row, board_column, row, col in moves: # pylint: disable=redefined-outer-name
+    for board_row, board_column, row, col in moves:  # pylint: disable=redefined-outer-name
         sub_board = board.get_board(board_row, board_column)
         if row == col == 3:
             board.mark_win(sub_board)

@@ -38,7 +38,7 @@ class UltimateTicTacToeBoard:
             sub_board.board_state[2][1] = 'O'
             sub_board.board_state[2][2] = 'O'
             sub_board.win_state = 'O'
-    
+
     def get_board(self, row, col):
         return self.boards[row][col]
 
@@ -56,7 +56,7 @@ class UltimateTicTacToeBoard:
         for board_row in self.boards:
             for board in board_row:
                 tie_status.append(board.win_state)
-        return set(tie_status) == 1
+        return(0 not in tie_status)
 
     def check_win(self):
         boards = self.boards
