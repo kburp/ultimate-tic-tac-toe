@@ -21,7 +21,7 @@ def main():
 
     while True:
         sub_board = board.boards[sub_board_position[0]][sub_board_position[1]]
-        if board.check_board_availability(sub_board):
+        if not board.check_board_availability(sub_board):
             sub_board_position = textController.choose_board()
             continue
 

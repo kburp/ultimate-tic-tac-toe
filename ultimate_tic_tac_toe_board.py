@@ -2,7 +2,6 @@
 Class representing an ultimate tic-tac-toe board.
 """
 
-import numpy as np
 from tic_tac_toe_board import TicTacToeBoard
 
 
@@ -10,13 +9,13 @@ class UltimateTicTacToeBoard:
 
     def __init__(self):
         self.boards = [[TicTacToeBoard() for i in range(3)] for j in range(3)]
-        self.current_move = "X"
+        self._current_move = "X"
 
     def next_move(self):
         if self.current_move == "X":
-            self.current_move = "O"
+            self._current_move = "O"
         else:
-            self.current_move = "X"
+            self._current_move = "X"
 
     def mark_win(self, sub_board):
         for subboard_row in range(0, 3):
@@ -39,11 +38,18 @@ class UltimateTicTacToeBoard:
             sub_board.board_state[2][1] = 'O'
             sub_board.board_state[2][2] = 'O'
             sub_board.win_state = 'O'
+    
+    def get_board(self, row, col):
+        return self.boards[row][col]
+
+    @property
+    def current_move(self):
+        return self._current_move
 
     def check_board_availability(self, sub_board):
         if isinstance(sub_board.win_state, str) or sub_board.win_state == 1:
-            return True
-        return False
+            return False
+        return True
 
     def check_tie(self):
         tie_status = []
