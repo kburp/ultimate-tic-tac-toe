@@ -1,37 +1,64 @@
-## Welcome to GitHub Pages
+# Ultimate Tic Tac Toe
 
-You can use the [editor on GitHub](https://github.com/olincollege/ultimate-tic-tac-toe/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
+#### Want to try a new game? Tired of boring Tic Tac Toe? Here is the place you can find something new. The goal of this project is to bring people a visually appealing, easy to use and gamer freindly environment of Ultimate Tic Tac Toe. We wanted to not just make a fun game, but also make the experience easier for our users. By providing this virtual version of Ultimate Tic Tac Toe, our goal was to minimize time wasted drawing the boards and amount of resources needed to make games. We also realized that people may not always have access to a another person to play against. Our goal was then to find a way to allow for a user to play by themselves. The solution was to develop an AI that would be a fun and challenging opponent to play agianst.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
+## Where to Get Started
+To play a few rounds against friends, or if you're alone, against AI, go to (instert section in ReadMe) to get started!
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## How to Play
 
-```markdown
-Syntax highlighted code block
+### Ultimate Tic Tac Toe is like regular Tic Tac Toe, except Ultimate!
 
-# Header 1
-## Header 2
-### Header 3
+##### The rules are as follows:
 
-- Bulleted
-- List
+* First player selects what large section they want to start in, then selects a section on the smaller board to place the first mark.
 
-1. Numbered
-2. List
+insert photos
 
-**Bold** and _Italic_ and `Code` text
+* The second player then has to play on the regular Tic Tac Toe board, that lies in the section corresponding with the spot the first player placed their mark in.
 
-[Link](url) and ![Image](src)
-```
+insert photos
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+* The players then keep alternating back and forth, playing on the board that corresponds with the other players move.
+* You win a board like a regular Tic Tac Toe game, with three marks that lie in a row, column or diagonal.
 
-### Jekyll Themes
+insert photo
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/olincollege/ultimate-tic-tac-toe/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+* You win the Ultimate Tic Tac Toe game, by winning three boards that lie in a row, column or diagonal.
 
-### Support or Contact
+insert photo
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+##### Other Rules
+
+* If the previous players mark corresponds to a board that is completely full, or has been won by a player, then the current player can play any board they want.
+
+insert photo
+
+* If no one can win three boards that lie in a row, column or diagonal, then the Ultimate Tic Tac Toe game results in a draw.
+
+insert photo
+
+## Playing Features
+
+#### Aesthetic and User Friendly Board
+Enjoy a realistic representation of an actual Ultimate Tic Tac Toe board and forget about worrying to type in the coordinates while playing your game. With the visual representation of an Ultimate Tic Tac Toe Board and easy controls, both provided by pygame, the nuisance of typing into a command line is taken away by a simple click of the mouse. This feature allows for quick, easy, seamless and fun play in a realistic environment.
+
+#### Single Player VS AI
+Alone with no one to play? No worries because there is a solution for you. Challenge yourself and play agaisnt our own AI system. See if you can beat the algorythm and prove whether or not computers are smarter then humans.
+
+### Link to Ultiamte Tic Tac Toe's GitHub Page:
+https://github.com/olincollege/ultimate-tic-tac-toe
+
+## Creators
+
+### Marc Eftimie
+### Kenta Burpee
+### Satchel Sevenau
+* From Bay Area, CA.
+* Student at Olin College of Engineering studying Engineering with Computing.
+* Favorite ice cream flavor is chocolate.
+
+## External Resources Used:
+* Home page of pygame documentation: https://www.pygame.org/docs/
+* Creating Tic Tac Toe board example in pygame by GeeksforGeeks: https://www.geeksforgeeks.org/tic-tac-toe-gui-in-python-using-pygame/
