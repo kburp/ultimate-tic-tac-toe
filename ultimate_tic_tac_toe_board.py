@@ -52,11 +52,11 @@ class UltimateTicTacToeBoard:
         return True
 
     def check_tie(self):
-        tie_status = []
         for board_row in self.boards:
             for board in board_row:
-                tie_status.append(board.win_state)
-        return(0 not in tie_status)
+                if board.win_state == 0:
+                    return False
+        return not self.check_win()
 
     def check_win(self):
         boards = self.boards
