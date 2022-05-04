@@ -233,7 +233,7 @@ def test_check_tie(board, game):  # pylint: disable=redefined-outer-name
             the check_tie function for that particular board state
             configuration.
     """
-    win_states, _, tie_state = game
+    win_states, _, tie_state = game  # pylint: disable=redefined-outer-name
     for i, row in enumerate(win_states):  # pylint: disable=redefined-outer-name
         for j, state in enumerate(row):
             sub_board = board.get_board(i, j)
