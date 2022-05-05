@@ -183,11 +183,13 @@ class TextComputerController(UltimateTicTacToeController):
             board.get_square((row + 1) % 3, (col - 1) % 3) == opponent or \
             board.get_square((row + 2) % 3, (col - 2) % 3) == opponent):
             return False
-        return row == col and \
+        elif row == col and \
             (board.get_square((row + 1) % 3, (col + 1) % 3) == \
             board.get_square((row + 2) % 3, (col + 2) % 3) or \
             board.get_square((row + 1) % 3, (col + 1) % 3) == opponent or \
-            board.get_square((row + 2) % 3, (col + 2) % 3) == opponent)
+            board.get_square((row + 2) % 3, (col + 2) % 3) == opponent):
+            return False
+        return True
 
 
 class GraphicalController(UltimateTicTacToeController):
