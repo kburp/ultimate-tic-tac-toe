@@ -13,30 +13,35 @@ def main():
     """
     Your docstring goes here.
     """
-    board = UltimateTicTacToeBoard()
-    textController = TextController(board)
-    textView = TextView(board)
+    two_players = True
+    if two_players:
+        board = UltimateTicTacToeBoard()
+        textController = TextController(board)
+        textView = TextView(board)
 
-    sub_board_position = textController.choose_board()
+        sub_board_position = textController.choose_board()
 
-    while True:
-        sub_board = board.boards[sub_board_position[0]][sub_board_position[1]]
-        if not board.check_board_availability(sub_board):
-            sub_board_position = textController.choose_board()
-            continue
+        while True:
+            sub_board = board.boards[sub_board_position[0]][sub_board_position[1]]
+            if not board.check_board_availability(sub_board):
+                sub_board_position = textController.choose_board()
+                continue
 
-        sub_board_position = textController.move(sub_board_position)
+            sub_board_position = textController.move(sub_board_position)
 
-        if board.check_win():
-            print(f"{board.current_move} won!")
-            break
-        if board.check_tie():
-            print("It's a tie!")
-            break
+            if board.check_win():
+                print(f"{board.current_move} won!")
+                break
+            if board.check_tie():
+                print("It's a tie!")
+                break
 
-        board.next_move()
+            board.next_move()
 
-        textView.draw(sub_board_position)
+            textView.draw(sub_board_position)
+    else:
+        # TODO CREATE GAME LOOP FOR AI
+        pass
 
 
 if __name__ == "__main__":
