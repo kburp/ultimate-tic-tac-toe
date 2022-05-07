@@ -83,6 +83,8 @@ class TextComputerController(UltimateTicTacToeController):
                 ][randint(0, 2)]
         move_square = self.get_best_move(sub_board, self.board.current_move)
         sub_board.mark(move_square[0], move_square[1], self.board.current_move)
+        if sub_board.check_win(self.board.current_move):
+            self._ultimate_tic_tac_toe_board.mark_win(sub_board)
         return move_square
             
     def get_best_move(self, sub_board, current_move):
