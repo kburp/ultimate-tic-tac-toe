@@ -23,7 +23,9 @@ class TextView(UltimateTicTacToeView):
     def draw(self, sub_board_position):
         print(self.board)
         print(f"It is now {self.board.current_move}'s turn.")
-        print(f"Playing on board {sub_board_position}.")
+        if self.board.get_board(sub_board_position[0], \
+            sub_board_position[1]).win_state == 0:
+            print(f"Playing on board {sub_board_position}.")
 
 
 class GraphicalView(UltimateTicTacToeView):
