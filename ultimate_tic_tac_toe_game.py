@@ -29,15 +29,30 @@ def main():
     else:
         player_two = TextController(board)
 
-    sub_board_position = player_one.choose_board()
+    sub_board_position = None
+    while sub_board_position == None:
+        try:
+            sub_board_position = player_two.choose_board()
+        except ValueError:
+            pass
 
     while True:
         sub_board = board.boards[sub_board_position[0]][sub_board_position[1]]
         if not board.check_board_availability(sub_board):
-            sub_board_position = player_one.choose_board()
+            sub_board_position = None
+            while sub_board_position == None:
+                try:
+                    sub_board_position = player_one.choose_board()
+                except ValueError:
+                    pass
             continue
 
-        sub_board_position = player_one.move(sub_board_position)
+        mark_position = None
+        while mark_position == None:
+            try:
+                mark_position = player_one.move(sub_board_position)
+            except ValueError:
+                pass
 
         if board.check_win():
             print(f"{board.current_move} won!")
@@ -52,12 +67,23 @@ def main():
 
         sub_board = board.boards[sub_board_position[0]][sub_board_position[1]]
         while (not board.check_board_availability(sub_board)) and \
-            isinstance(player_two, TextController):
-            sub_board_position = player_two.choose_board()
+                isinstance(player_two, TextController):
+
+            sub_board_position = None
+            while sub_board_position == None:
+                try:
+                    sub_board_position = player_two.choose_board()
+                except ValueError:
+                    pass
             sub_board = board.boards[sub_board_position[0]][
                 sub_board_position[1]]
 
-        sub_board_position = player_two.move(sub_board_position)
+        mark_position = None
+        while mark_position == None:
+            try:
+                mark_position = player_two.move(sub_board_position)
+            except ValueError:
+                pass
 
         if board.check_win():
             print(f"{board.current_move} won!")
