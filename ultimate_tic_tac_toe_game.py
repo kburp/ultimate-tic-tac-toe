@@ -32,7 +32,7 @@ def main():
     sub_board_position = None
     while sub_board_position == None:
         try:
-            sub_board_position = player_two.choose_board()
+            sub_board_position = player_one.choose_board()
         except ValueError:
             pass
 
@@ -53,6 +53,8 @@ def main():
                 mark_position = player_one.move(sub_board_position)
             except ValueError:
                 pass
+
+        sub_board_position = mark_position
 
         if board.check_win():
             print(f"{board.current_move} won!")
@@ -81,9 +83,12 @@ def main():
         mark_position = None
         while mark_position == None:
             try:
+                print(sub_board_position)
                 mark_position = player_two.move(sub_board_position)
             except ValueError:
                 pass
+
+        sub_board_position = mark_position
 
         if board.check_win():
             print(f"{board.current_move} won!")
