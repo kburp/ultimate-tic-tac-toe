@@ -50,7 +50,7 @@ def main():
         mark_position = None
         while mark_position == None:
             try:
-                mark_position = player_one.move(sub_board_position)
+                mark_position, _ = player_one.move(sub_board_position)
             except ValueError:
                 pass
 
@@ -84,7 +84,7 @@ def main():
         while mark_position == None:
             try:
                 print(sub_board_position)
-                mark_position = player_two.move(sub_board_position)
+                mark_position, _ = player_two.move(sub_board_position)
             except ValueError:
                 pass
 

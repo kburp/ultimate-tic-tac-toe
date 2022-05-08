@@ -39,7 +39,7 @@ class TextController(UltimateTicTacToeController):
                         mark_position[0], mark_position[1], self._ultimate_tic_tac_toe_board.current_move)
                     if sub_board.check_win(self._ultimate_tic_tac_toe_board.current_move):
                         self._ultimate_tic_tac_toe_board.mark_win(sub_board)
-                    return mark_position
+                    return mark_position, None
                 else:
                     raise ValueError
             except:
@@ -79,14 +79,15 @@ class TextComputerController(UltimateTicTacToeController):
         sub_board = self._ultimate_tic_tac_toe_board.boards[sub_board_position[
             0]][sub_board_position[1]]
         while sub_board.win_state != 0:
-            sub_board = self._ultimate_tic_tac_toe_board.boards[randint(0, 2)
-                ][randint(0, 2)]
+            sub_board_position = (randint(0, 2), randint(0, 2))
+            sub_board = self._ultimate_tic_tac_toe_board.boards[sub_board_position[0]
+                                                                ][sub_board_position[1]]
         move_square = self.get_best_move(sub_board, self.board.current_move)
         sub_board.mark(move_square[0], move_square[1], self.board.current_move)
         if sub_board.check_win(self.board.current_move):
             self._ultimate_tic_tac_toe_board.mark_win(sub_board)
-        return move_square
-            
+        return move_square, sub_board_position
+
     def get_best_move(self, sub_board, current_move):
         """
         Determines what the most strategic move for the computer is within
@@ -129,8 +130,7 @@ class TextComputerController(UltimateTicTacToeController):
             if self.check_one_and_empty(sub_board, space, opponent_move):
                 return space
         return available_spaces[0]
-        
-    
+
     def check_two_in_a_row(self, board, space, player):
         """
         Checks for a given empty square if the other two squares in the row or
@@ -145,13 +145,13 @@ class TextComputerController(UltimateTicTacToeController):
         """
         row, col = space
         if board.get_square((row + 1) % 3, col) == \
-            board.get_square((row + 2) % 3, col) == player:
+                board.get_square((row + 2) % 3, col) == player:
             return True
         elif board.get_square(row, (col + 1) % 3) == \
-            board.get_square(row, (col + 2) % 3) == player:
+                board.get_square(row, (col + 2) % 3) == player:
             return True
         if row + col == 2 and board.get_square((row + 1) % 3, (col - 1) % 3) \
-            == board.get_square((row + 2) % 3, (col - 2) % 3) == player:
+                == board.get_square((row + 2) % 3, (col - 2) % 3) == player:
             return True
         return row == col and board.get_square((row + 1) % 3, (col + 1) % 3) \
             == board.get_square((row + 2) % 3, (col + 2) % 3) == player
@@ -170,31 +170,56 @@ class TextComputerController(UltimateTicTacToeController):
         """
         row, col = space
         if board.get_square((row + 1) % 3, col) == \
-            board.get_square((row + 2) % 3, col) or \
-            board.get_square((row + 1) % 3, col) == opponent or \
-            board.get_square((row + 2) % 3, col) == opponent:
+                board.get_square((row + 2) % 3, col) or \
+                board.get_square((row + 1) % 3, col) == opponent or \
+                board.get_square((row + 2) % 3, col) == opponent:
             return False
         elif board.get_square(row, (col + 1) % 3) == \
-            board.get_square(row, (col + 2) % 3) or \
-            board.get_square(row, (col + 1) % 3) == opponent or \
-            board.get_square(row, (col + 2) % 3) == opponent:
+                board.get_square(row, (col + 2) % 3) or \
+                board.get_square(row, (col + 1) % 3) == opponent or \
+                board.get_square(row, (col + 2) % 3) == opponent:
             return False
         elif row + col == 2 and \
-            (board.get_square((row + 1) % 3, (col - 1) % 3) == \
-            board.get_square((row + 2) % 3, (col - 2) % 3) or \
-            board.get_square((row + 1) % 3, (col - 1) % 3) == opponent or \
-            board.get_square((row + 2) % 3, (col - 2) % 3) == opponent):
+            (board.get_square((row + 1) % 3, (col - 1) % 3) ==
+             board.get_square((row + 2) % 3, (col - 2) % 3) or
+             board.get_square((row + 1) % 3, (col - 1) % 3) == opponent or
+             board.get_square((row + 2) % 3, (col - 2) % 3) == opponent):
             return False
         elif row == col and \
-            (board.get_square((row + 1) % 3, (col + 1) % 3) == \
-            board.get_square((row + 2) % 3, (col + 2) % 3) or \
-            board.get_square((row + 1) % 3, (col + 1) % 3) == opponent or \
-            board.get_square((row + 2) % 3, (col + 2) % 3) == opponent):
+            (board.get_square((row + 1) % 3, (col + 1) % 3) ==
+             board.get_square((row + 2) % 3, (col + 2) % 3) or
+             board.get_square((row + 1) % 3, (col + 1) % 3) == opponent or
+             board.get_square((row + 2) % 3, (col + 2) % 3) == opponent):
             return False
         return True
 
 
 class GraphicalController(UltimateTicTacToeController):
 
-    def move(self):
-        pass
+    def move(self, sub_board_position, sub_board_square_position):
+        sub_board = self._ultimate_tic_tac_toe_board.boards[sub_board_position[0]
+                                                            ][sub_board_position[1]]
+        try:
+            if (0 <= sub_board_square_position[0] <= 2) and (0 <= sub_board_square_position[1] <= 2):
+                sub_board.mark(
+                    sub_board_square_position[0], sub_board_square_position[1], self._ultimate_tic_tac_toe_board.current_move)
+                if sub_board.check_win(self._ultimate_tic_tac_toe_board.current_move):
+                    self._ultimate_tic_tac_toe_board.mark_win(sub_board)
+                return sub_board_square_position
+            else:
+                raise ValueError
+        except:
+            print(f"{sub_board_square_position} was not a valid move.")
+            raise ValueError
+
+    def choose_board(self, sub_board_position):
+        try:
+            sub_board = self._ultimate_tic_tac_toe_board.boards[sub_board_position[0]
+                                                                ][sub_board_position[1]]
+            if (0 <= sub_board_position[0] <= 2) and (0 <= sub_board_position[1] <= 2) and \
+                    sub_board.win_state == 0:
+                return sub_board_position
+            raise ValueError
+        except:
+            print(f"{sub_board_position} was not a valid move.")
+            raise ValueError

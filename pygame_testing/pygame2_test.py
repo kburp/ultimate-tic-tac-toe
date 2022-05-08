@@ -26,28 +26,28 @@ while running:
     ultimateRow = int
 
     # get column of mouse click (1-3)
-    if(x<width / 3):
+    if(x < width / 3):
         ultimateCol = 0
-        
-    elif (x<width / 3 * 2):
+
+    elif (x < width / 3 * 2):
         ultimateCol = 1
-        
-    elif(x<width):
+
+    elif(x < width):
         ultimateCol = 2
-        
+
     else:
         ultimateCol = None
 
     # get row of mouse click (1-3)
-    if(y<height / 3):
+    if(y < height / 3):
         ultimateRow = 0
-        
-    elif (y<height / 3 * 2):
+
+    elif (y < height / 3 * 2):
         ultimateRow = 1
-        
-    elif(y<height):
+
+    elif(y < height):
         ultimateRow = 2
-        
+
     else:
         ultimateRow = None
 
@@ -73,22 +73,25 @@ while running:
 
     # calculate margins for small games
     margin = ((width / 3) - smallWidth) / 2
-  
-    # color of the straightlines on that 
-    # white game board, dividing board 
+
+    # color of the straightlines on that
+    # white game board, dividing board
     # into 9 parts
     line_color = (0, 0, 0)
 
+    # Draw Ultimate board
+    # drawing vertical lines
+    pygame.draw.line(screen, line_color, (width / 3, 0),
+                     (width / 3, height), 7)
+    pygame.draw.line(screen, line_color, (width / 3 * 2, 0),
+                     (width / 3 * 2, height), 7)
 
     # Draw Ultimate board
-        # drawing vertical lines
-    pygame.draw.line(screen, line_color, (width / 3, 0), (width / 3, height), 7)
-    pygame.draw.line(screen, line_color, (width / 3 * 2, 0), (width / 3 * 2, height), 7)
-   
-    # Draw Ultimate board
-        # drawing horizontal lines
-    pygame.draw.line(screen, line_color, (0, height / 3), (width, height / 3), 7)
-    pygame.draw.line(screen, line_color, (0, height / 3 * 2), (width, height / 3 * 2), 7)
+    # drawing horizontal lines
+    pygame.draw.line(screen, line_color, (0, height / 3),
+                     (width, height / 3), 7)
+    pygame.draw.line(screen, line_color, (0, height / 3 * 2),
+                     (width, height / 3 * 2), 7)
 
     # draw small tic tac toe games
     for changeInX in range(3):
@@ -98,12 +101,16 @@ while running:
             distChangeY = changeInY * (width / 3)
 
             # drawing vertical lines
-            pygame.draw.line(screen, line_color, ((smallWidth / 3) + distChangeX, margin + distChangeY), ((smallWidth / 3) + distChangeX, smallHeight + distChangeY), 7)
-            pygame.draw.line(screen, line_color, ((smallWidth / 3 * 2) + distChangeX, margin + distChangeY), ((smallWidth / 3 * 2) + distChangeX, smallHeight + distChangeY), 7)
-        
+            pygame.draw.line(screen, line_color, ((smallWidth / 3) + distChangeX, margin +
+                             distChangeY), ((smallWidth / 3) + distChangeX, smallHeight + distChangeY), 7)
+            pygame.draw.line(screen, line_color, ((smallWidth / 3 * 2) + distChangeX, margin +
+                             distChangeY), ((smallWidth / 3 * 2) + distChangeX, smallHeight + distChangeY), 7)
+
             # drawing horizontal lines
-            pygame.draw.line(screen, line_color, (margin + distChangeX, (smallHeight / 3) + distChangeY), (smallWidth + distChangeX, (smallHeight / 3) + distChangeY), 7)
-            pygame.draw.line(screen, line_color, (margin + distChangeX, (smallHeight / 3 * 2) + distChangeY), (smallWidth + distChangeX, (smallHeight / 3 * 2) + distChangeY), 7)
+            pygame.draw.line(screen, line_color, (margin + distChangeX, (smallHeight / 3) +
+                             distChangeY), (smallWidth + distChangeX, (smallHeight / 3) + distChangeY), 7)
+            pygame.draw.line(screen, line_color, (margin + distChangeX, (smallHeight / 3 * 2) +
+                             distChangeY), (smallWidth + distChangeX, (smallHeight / 3 * 2) + distChangeY), 7)
     print(f"{ultimateRow},{ultimateCol}")
     # Flip the display
     pygame.display.flip()
