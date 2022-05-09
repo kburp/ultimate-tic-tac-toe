@@ -8,7 +8,7 @@ class UltimateTicTacToeBoard:
     """
     Represents an ultimate tic-tac-toe board.
 
-    Args:
+    Attributes:
         boards: A list of lists containing instances of
             TicTacToeBoard objects that represent the
             3x3 grid of the board.
@@ -17,16 +17,6 @@ class UltimateTicTacToeBoard:
     """
 
     def __init__(self):
-        """
-        Creates a new UltimateTicTacToe object.
-
-        Args:
-        boards: A list of lists containing instances of
-            TicTacToeBoard objects that represent the
-            3x3 grid of the board.
-        _current_move: A string representing the marking
-            symbol of the current player.
-        """
         self.boards = [[TicTacToeBoard() for i in range(3)] for j in range(3)]
         self._current_move = "X"
 
@@ -92,7 +82,7 @@ class UltimateTicTacToeBoard:
         """
         return self._current_move
 
-    def check_board_availability(self, sub_board): #pylint: disable=no-self-use
+    def check_board_availability(self, sub_board):  # pylint: disable=no-self-use
         """
         Checks if a sub board of the UltimateTicTacToeBoard is available to
         play on.
@@ -133,22 +123,23 @@ class UltimateTicTacToeBoard:
         for i in range(0, 3):
             # check horizontal win
             if boards[i][0].win_state == boards[i][1].win_state == \
-                boards[i][2].win_state and \
-                isinstance(boards[i][0].win_state, str):
+                    boards[i][2].win_state and \
+                    isinstance(boards[i][0].win_state, str):
                 return boards[i][0].win_state
             # check vertical win
             if boards[0][i].win_state == boards[1][i].win_state == \
-                boards[2][i].win_state and \
-                isinstance(boards[0][i].win_state, str):
+                    boards[2][i].win_state and \
+                    isinstance(boards[0][i].win_state, str):
                 return boards[0][i].win_state
         # check diagonal win
         if boards[0][0].win_state == boards[1][1].win_state == \
-            boards[2][2].win_state and \
-            isinstance(boards[1][1].win_state, str):
+                boards[2][2].win_state and \
+                isinstance(boards[1][1].win_state, str):
             return boards[0][0].win_state
         # check other diagonal win
         if boards[0][2].win_state == boards[1][1].win_state == \
-            boards[2][0].win_state and isinstance(boards[1][1].win_state, str):
+                boards[2][0].win_state and \
+                isinstance(boards[1][1].win_state, str):
             return boards[0][2].win_state
         return False
 
