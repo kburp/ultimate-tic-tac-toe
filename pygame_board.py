@@ -267,6 +267,10 @@ while RUNNING:
         screen.blit(text_surface, (WIDTH/2 + 160, 555))
 
     for event in pygame.event.get():
+        if event.type == pygame.QUIT:  # pylint: disable=no-member
+            RUNNING = False
+            continue
+
         if event.type == pygame.MOUSEBUTTONDOWN and not START:  # pylint: disable=no-member
 
             if WIDTH/2 - 250 <= mouse[0] <= WIDTH/2 - 150 and 540 <= mouse[1]\
@@ -344,9 +348,6 @@ while RUNNING:
                     BOARD_CHOSEN = False
                     break
 
-        if event.type == pygame.quit:  # pylint: disable=no-member
-            RUNNING = False
-
     draw_ultimateboard()
     for i in range(3):
         for j in range(3):
@@ -359,3 +360,5 @@ while RUNNING:
             "Choose a valid board!", False, (255, 255, 255))
         screen.blit(text_surface, (WIDTH/2 - 100, 525))
     pygame.display.flip()
+
+pygame.quit()
