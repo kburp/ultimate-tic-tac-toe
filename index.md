@@ -1,6 +1,6 @@
 # Ultimate Tic Tac Toe
 
-#### Want to try a new game? Tired of boring Tic Tac Toe? Here is the place you can find something new. The goal of this project is to bring people a visually appealing, easy to use and gamer freindly environment of Ultimate Tic Tac Toe. We wanted to not just make a fun game, but also make the experience easier for our users. By providing this virtual version of Ultimate Tic Tac Toe, our goal was to minimize time wasted drawing the boards and amount of resources needed to make games. We also realized that people may not always have access to a another person to play against. Our goal was then to find a way to allow for a user to play by themselves. The solution was to develop an AI that would be a fun and challenging opponent to play agianst. HELOOOOOO
+#### Want to try a new game? Tired of boring Tic Tac Toe? Here is the place you can find something new. The goal of this project is to bring people a visually appealing, easy to use and gamer freindly environment of Ultimate Tic Tac Toe. We wanted to not just make a fun game, but also make the experience easier for our users. By providing this virtual version of Ultimate Tic Tac Toe, our goal was to minimize time wasted drawing the boards and amount of resources needed to make games. We also realized that people may not always have access to a another person to play against. Our goal was then to find a way to allow for a user to play by themselves. The solution was to develop an AI that would be a fun and challenging opponent to play agianst.
 
 
 ## Where to Get Started
@@ -62,6 +62,9 @@ Enjoy a realistic representation of an actual Ultimate Tic Tac Toe board and for
 
 #### Single Player VS AI
 Alone with no one to play? No worries because there is a solution for you. Challenge yourself and play agaisnt our own AI system. See if you can beat the algorythm and prove whether or not computers are smarter then humans.
+
+### Video
+<iframe width="640" height="480" src="https://drive.google.com/file/d/12DNCBdYJ0pvZacyzL9o9XGq_5EXs_Ca3/preview" allow="autoplay"></iframe>
 
 ### Link to Ultiamte Tic Tac Toe's GitHub Page:
 https://github.com/olincollege/ultimate-tic-tac-toe
