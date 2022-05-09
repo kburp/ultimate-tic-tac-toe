@@ -67,7 +67,7 @@ Alone with no one to play? No worries because there is a solution for you. Chall
 <iframe width="640" height="480" src="https://drive.google.com/file/d/12DNCBdYJ0pvZacyzL9o9XGq_5EXs_Ca3/preview" allow="autoplay"></iframe>
 
 ### Link to Ultiamte Tic Tac Toe's GitHub Page:
-https://github.com/olincollege/ultimate-tic-tac-toe
+[Download Link](https://github.com/olincollege/ultimate-tic-tac-toe)
 
 ## Creators
 
