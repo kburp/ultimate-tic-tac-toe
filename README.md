@@ -7,7 +7,7 @@
 * Go to (isnert instructions) to get started!
 * Once started, select whether you want to play single or multiplayer.
 
-![alt text](/images/ss1.jpg)
+![alt text](../images/ss1.jpg)
 
 ## How to Play
 
