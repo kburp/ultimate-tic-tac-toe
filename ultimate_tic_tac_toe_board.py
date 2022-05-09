@@ -17,6 +17,9 @@ class UltimateTicTacToeBoard:
     """
 
     def __init__(self):
+        """
+        Creates an empty UltimateTicTacToeBoard.
+        """
         self.boards = [[TicTacToeBoard() for i in range(3)] for j in range(3)]
         self._current_move = "X"
 

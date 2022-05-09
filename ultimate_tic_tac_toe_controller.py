@@ -12,8 +12,8 @@ class UltimateTicTacToeController(ABC):
 
     Attributes:
         _ultimate_tic_tac_toe_board: An UltimateTicTacToeBoard object.
-            board: A decorator property that returns
-        self._ultimate_tic_tac_toe_board.
+        board: A decorator property that returns
+            self._ultimate_tic_tac_toe_board.
     """
 
     def __init__(self, UltimateTicTacToeBoard):  # pylint: disable=redefined-outer-name
@@ -129,6 +129,12 @@ class TextComputerController(UltimateTicTacToeController):
                 last move that also represent the row and column within the
                 UltimateTicTacToeBoard that the computer will play on for
                 the current turn.
+
+        Returns:
+            A list of two ints representing the row and column index of a space
+            within a TicTacToeBoard and a tuple of two ints representing the
+            row and column index of a TicTacToeBoard within the
+            UltimateTicTacToeBoard.
         """
         sub_board = self._ultimate_tic_tac_toe_board.boards[sub_board_position[
             0]][sub_board_position[1]]
@@ -162,6 +168,10 @@ class TextComputerController(UltimateTicTacToeController):
             sub_board: A TicTacToeBoard instance to get the best move for.
             current_move: A string representing the marker of the current
                 player.
+
+        Returns:
+            A list of two integers representing the row and column index of a
+            TicTacToeBoard.
         """
         available_spaces = []
         for i in range(3):
@@ -196,6 +206,10 @@ class TextComputerController(UltimateTicTacToeController):
                 on the board.
             player: A string representing the player marker to check for two in
                 a row.
+
+        Returns:
+            A boolean representing whether or not the condition described above
+            has been met.
         """
         row, col = space
         if board.get_square((row + 1) % 3, col) == \
@@ -221,6 +235,10 @@ class TextComputerController(UltimateTicTacToeController):
             space: A list containing a row and column index for an empty space
                 on the board.
             opponent: A string representing the marker of the opponent player.
+
+        Returns:
+            A boolean representing whether or not the condition described above
+            has been met.
         """
         row, col = space
         if board.get_square((row + 1) % 3, col) == \

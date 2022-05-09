@@ -7,6 +7,14 @@ class TicTacToeBoard:
     """
     Tic-Tac-Toe board that will act as a sub board on the ultimate Tic-Tac-Toe
     board.
+
+    Attributes:
+        _board_state: A list of lists containing strings representing the
+            markers on the board.
+        move_count: An int representing the number of moves that has been
+            played on the board.
+        win_state: An int or string representing whether a board has been
+            won by a certain player, tied, or neither.
     """
 
     def __init__(self):
@@ -33,6 +41,7 @@ class TicTacToeBoard:
         Args:
             row: An int representing the index of the row to be marked.
             col: An int representing the index of the column to be marked.
+            player: A string representing the symbol of the current player.
         """
         if self._board_state[row][col] == " ":
             self._board_state[row][col] = player
