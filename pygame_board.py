@@ -1,14 +1,11 @@
 """
 File that genrates and maintaines a board game using pygame.
 """
-# import the pygame module
-from sqlalchemy import false
+
+import pygame
 from ultimate_tic_tac_toe_board import UltimateTicTacToeBoard
 from ultimate_tic_tac_toe_controller import GraphicalController,\
     TextComputerController
-from click import pass_obj
-import pygame
-import time
 
 board = UltimateTicTacToeBoard()
 player = GraphicalController(board)
@@ -56,14 +53,16 @@ def draw_subboard(starting_x, starting_y):
     for line_count in range(2):
         # Draw Vertical Lines for Subboard
         pygame.draw.rect(screen, line_color, pygame.Rect(
-            starting_x + square_thickness + line_count * (line_thickness +\
-                square_thickness), starting_y, line_thickness,\
-                    subboard_thickness))
+            starting_x + square_thickness + line_count * (
+                line_thickness +
+                square_thickness),
+            starting_y, line_thickness,
+            subboard_thickness))
         # Draw Horizontal Lines for Subboard
         pygame.draw.rect(screen, line_color, pygame.Rect(
-            starting_x, starting_y + square_thickness + line_count *\
-                (line_thickness + square_thickness), subboard_thickness,\
-                    line_thickness))
+            starting_x, starting_y + square_thickness + line_count *
+            (line_thickness + square_thickness), subboard_thickness,
+            line_thickness))
 
 
 def draw_ultimateboard():
@@ -78,12 +77,15 @@ def draw_ultimateboard():
     for line_count in range(2):
         # Draw Vertical Lines for Subboard
         pygame.draw.rect(screen, line_color, pygame.Rect(
-            square_thickness + line_count * (line_thickness + square_thickness\
+            square_thickness + line_count * (
+                line_thickness + square_thickness
                 + 4), 0, line_thickness - 3, subboard_thickness))
         # Draw Horizontal Lines for Subboard
         pygame.draw.rect(screen, line_color, pygame.Rect(
-            0, square_thickness + line_count * (line_thickness +\
-                square_thickness + 4), subboard_thickness, line_thickness - 3))
+            0, square_thickness + line_count * (
+                line_thickness +
+                square_thickness + 4),
+            subboard_thickness, line_thickness - 3))
 
 
 def draw_x(starting_x, starting_y):
@@ -97,10 +99,10 @@ def draw_x(starting_x, starting_y):
     line_color = (0, 0, 0)
     line_thickness = 5
     pygame.draw.line(screen, line_color, (starting_x + 5, starting_y + 5),
-                     (starting_x + 45, starting_y + 45), WIDTH=line_thickness)
+                     (starting_x + 45, starting_y + 45), width=line_thickness)
     pygame.draw.line(screen, line_color, (starting_x + 45,
-                     starting_y + 5), (starting_x + 5, starting_y + 45),\
-                         WIDTH=line_thickness)
+                     starting_y + 5), (starting_x + 5, starting_y + 45),
+                     width=line_thickness)
 
 
 def draw_o(starting_x, starting_y):
@@ -115,10 +117,10 @@ def draw_o(starting_x, starting_y):
     starting_y += 25
     line_color = (0, 0, 0)
     pygame.draw.circle(screen, line_color,
-                       (starting_x, starting_y), 20, WIDTH=3)
+                       (starting_x, starting_y), 20, width=3)
 
 
-def mark_square(subboard_coordinates, player): # pylint: disable=redefined-outer-name
+def mark_square(subboard_coordinates, player):  # pylint: disable=redefined-outer-name
     """
     Marks the square that a player has tapped on.
 
@@ -142,7 +144,7 @@ def mark_square(subboard_coordinates, player): # pylint: disable=redefined-outer
         draw_o(starting_x, starting_y)
 
 
-def ai_move(current_board_position): # pylint: disable=redefined-outer-name
+def ai_move(current_board_position):  # pylint: disable=redefined-outer-name
     """
     Marks the section on the board selected by the AI.
 
@@ -152,9 +154,11 @@ def ai_move(current_board_position): # pylint: disable=redefined-outer-name
     current_board_square_position, current_board_position = AI.move(
         current_board_position)
     ultimate_row = current_board_position[0] * \
-        3 + current_board_square_position[0] # pylint: disable=redefined-outer-name
+        3 + \
+        current_board_square_position[0]   # pylint: disable=redefined-outer-name
     ultimate_col = current_board_position[1] * \
-        3 + current_board_square_position[1] # pylint: disable=redefined-outer-name
+        3 + \
+        current_board_square_position[1]  # pylint: disable=redefined-outer-name
 
     mark_square((ultimate_row, ultimate_col), "O")
 
@@ -167,45 +171,57 @@ def ai_move(current_board_position): # pylint: disable=redefined-outer-name
         tie_text()
 
     current_board_position = tuple(current_board_square_position)
-    sub_board = board.boards[current_board_position[0]]\
-        [current_board_position[1]] # pylint: disable=redefined-outer-name
+    sub_board = board.boards[current_board_position[0]
+                             ][current_board_position[1]]  # pylint: disable=redefined-outer-name
 
     if not board.check_board_availability(sub_board):
-        BOARD_CHOSEN = False # pylint: disable=redefined-outer-name
+        BOARD_CHOSEN = False  # pylint: disable=redefined-outer-name
         return current_board_position, BOARD_CHOSEN
     BOARD_CHOSEN = True
     current_board_text(current_board_position)
     return current_board_position, BOARD_CHOSEN
 
 
-def current_board_text(current_board_position): # pylint: disable=redefined-outer-name
+def current_board_text(current_board_position):  # pylint: disable=redefined-outer-name
+    """
+    Hi
+    """
     pygame.draw.rect(screen, (255, 255, 255),
                      pygame.Rect(0, 520, 520, 80))
-    text_surface = my_font.render( # pylint: disable=redefined-outer-name
+    text_surface = my_font.render(  # pylint: disable=redefined-outer-name
         f'Current board: {current_board_position}', False, (0, 0, 0))
     screen.blit(text_surface, (WIDTH/2 - 90, 555))
 
 
 def pick_a_board_text():
+    """
+    Hi
+    """
     pygame.draw.rect(screen, (255, 255, 255),
                      pygame.Rect(0, 520, 520, 80))
-    text_surface = my_font.render( # pylint: disable=redefined-outer-name
+    text_surface = my_font.render(  # pylint: disable=redefined-outer-name
         'Choose a valid board!', False, (255, 0, 0))
     screen.blit(text_surface, (WIDTH/2 - 100, 525))
 
 
 def win_text(winner):
+    """
+    Hi
+    """
     pygame.draw.rect(screen, (255, 255, 255),
                      pygame.Rect(0, 520, 520, 80))
-    text_surface = my_font.render( # pylint: disable=redefined-outer-name
+    text_surface = my_font.render(  # pylint: disable=redefined-outer-name
         f'{winner} Won!', False, (0, 0, 255))
     screen.blit(text_surface, (WIDTH/2 - 50, 555))
 
 
 def tie_text():
+    """
+    Hi
+    """
     pygame.draw.rect(screen, (255, 255, 255),
                      pygame.Rect(0, 520, 520, 80))
-    text_surface = my_font.render( # pylint: disable=redefined-outer-name
+    text_surface = my_font.render(
         'It\'s a Tie!', False, (0, 0, 255))
     screen.blit(text_surface, (WIDTH/2 - 100, 555))
 
@@ -220,22 +236,20 @@ while RUNNING:
 
     x, y = pygame.mouse.get_pos()
 
-    ultimate_col = int
-    ultimate_row = int
+    ultimate_col = int  # pylint: disable=redefined-outer-name
+    ultimate_row = int  # pylint: disable=redefined-outer-name
 
     for i in range(1, 10):
         if x < WIDTH / 9 * i:
             ultimate_col = i - 1
             break
-        else:
-            ultimate_col = None
+        ultimate_col = None
 
     for i in range(1, 10):
         if y < HEIGHT / 9 * i:
             ultimate_row = i - 1
             break
-        else:
-            ultimate_row = None
+        ultimate_row = None
 
     mouse = pygame.mouse.get_pos()
 
@@ -253,25 +267,25 @@ while RUNNING:
         screen.blit(text_surface, (WIDTH/2 + 160, 555))
 
     for event in pygame.event.get():
-        if event.type == pygame.MOUSEBUTTONDOWN and not START:
+        if event.type == pygame.MOUSEBUTTONDOWN and not START:  # pylint: disable=no-member
 
             if WIDTH/2 - 250 <= mouse[0] <= WIDTH/2 - 150 and 540 <= mouse[1]\
-                <= 590:
+                    <= 590:
                 START = True
                 IS_AI = True
 
             if WIDTH/2 + 150 <= mouse[0] <= WIDTH/2 + 250 and 540 <= mouse[1]\
-                <= 590:
+                    <= 590:
                 START = True
                 IS_AI = False
 
             pygame.draw.rect(screen, (255, 255, 255),
                              pygame.Rect(0, 520, 520, 80))
 
-        if event.type == pygame.MOUSEBUTTONUP and START and not IS_WON:
+        if event.type == pygame.MOUSEBUTTONUP and START and not IS_WON:  # pylint: disable=no-member
             if y > 519:
                 break
-            elif not FIRST_BOARD_CHOSEN:
+            if not FIRST_BOARD_CHOSEN:
                 sub_board_position = (ultimate_row // 3, ultimate_col // 3)
                 player.choose_board(sub_board_position)
                 current_board_position = sub_board_position
@@ -330,7 +344,7 @@ while RUNNING:
                     BOARD_CHOSEN = False
                     break
 
-        if event.type == pygame.QUIT:
+        if event.type == pygame.quit:  # pylint: disable=no-member
             RUNNING = False
 
     draw_ultimateboard()
