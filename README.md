@@ -17,7 +17,7 @@
 * To start the graphical game, type in python ultimate_tic_tac_toe_pygame.py in the terminal (remember you have to be in ultimate-tic-tac-toe directory.
 * Choose singleplayer (against an AI) or multiplayer by clicking the 1 player or 2 player button.
 
-![image](https://github.com/olincollege/ultimate-tic-tac-toe/blob/main/images/ss1.jpg?raw=true)
+<img src="images/ss1.jpg" width="30%" height="30%">
 
 ## How to Play
 
@@ -28,30 +28,31 @@
 * First player selects what large section they want to start in, then selects a section on the smaller board to place the first mark.
 
 <img src="images/ss2.jpg" width="30%" height="30%">
-![alt text](https://github.com/olincollege/ultimate-tic-tac-toe/blob/main/images/ss2.jpg)
 
-![alt text](https://github.com/olincollege/ultimate-tic-tac-toe/blob/main/images/ss3.1.jpg)
+
+<img src="images/ss3.1.jpg" width="30%" height="30%">
 
 * The second player then has to play on the regular Tic Tac Toe board, that lies in the section corresponding with the spot the first player placed their mark in.
 
-![alt text](https://github.com/olincollege/ultimate-tic-tac-toe/blob/main/images/ss3.2.jpg)
+<img src="images/ss3.2.jpg" width="30%" height="30%">
 
-![alt text](https://github.com/olincollege/ultimate-tic-tac-toe/blob/main/images/ss3.jpg)
+
+<img src="images/ss3.jpg" width="30%" height="30%">
 
 * The players then keep alternating back and forth, playing on the board that corresponds with the other players move.
 * You win a board like a regular Tic Tac Toe game, with three marks that lie in a row, column or diagonal.
 
-![alt text](https://github.com/olincollege/ultimate-tic-tac-toe/blob/main/images/ss6.jpg)
+<img src="images/ss6.jpg" width="30%" height="30%">
 
 * You win the Ultimate Tic Tac Toe game, by winning three boards that lie in a row, column or diagonal.
 
-![alt text](https://github.com/olincollege/ultimate-tic-tac-toe/blob/main/images/ss5.jpg)
+<img src="images/ss5.jpg" width="30%" height="30%">
 
 ##### Other Rules
 
 * If the previous players mark corresponds to a board that is completely full, or has been won by a player, then the current player can play any board they want.
 
-![alt text](https://github.com/olincollege/ultimate-tic-tac-toe/blob/main/images/ss4.jpg)
+<img src="images/ss4.jpg" width="30%" height="30%">
 * If no one can win three boards that lie in a row, column or diagonal, then the Ultimate Tic Tac Toe game results in a draw.
 
 ## Playing Features
