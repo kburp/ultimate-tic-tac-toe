@@ -33,13 +33,6 @@ class UltimateTicTacToeController(ABC):
         sub board.
         """
 
-    @abstractmethod
-    def choose_board(self):
-        """
-        An abstract method for getting the chosen board that the player
-        inputs.
-        """
-
 
 class TextController(UltimateTicTacToeController):
     """
@@ -299,7 +292,7 @@ class GraphicalController(UltimateTicTacToeController):
             print(f"{sub_board_square_position} was not a valid move.")
             raise ValueError from v_err
 
-    def choose_board(self, sub_board_position):  # pylint: disable=arguments-differ
+    def choose_board(self, sub_board_position):
         """
         Asks for the row and column of the sub board that the player wants
         to select. Called when the first player must choose the starting
