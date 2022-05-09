@@ -7,7 +7,7 @@
 * Go to (isnert instructions) to get started!
 * Once started, select whether you want to play single or multiplayer.
 
-![alt text](../images/ss1.jpg)
+![Opening Page](/ultimate-tic-tac-toe/assets/ss1.png)
 
 ## How to Play
 
