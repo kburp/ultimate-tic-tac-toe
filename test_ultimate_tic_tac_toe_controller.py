@@ -61,8 +61,9 @@ def test_two_moves(board, monkeypatch):  # pylint: disable=redefined-outer-name
     board.next_move()
     monkeypatch.setattr("sys.stdin", io.StringIO(input[2]))
     controller.move(sub_board_position)
-    assert board.boards[move[0][0]][move[0][1]].board_state[move[0][2]][move[0][3]] == move[1] and board.boards[move[2][0]][move[2][1]
-                                                                                                                            ].board_state[move[2][2]][move[2][3]] == move[3]
+    assert board.boards[move[0][0]][move[0][1]].board_state[move[0][2]]\
+        [move[0][3]] == move[1] and board.boards[move[2][0]][move[2][1]]\
+            .board_state[move[2][2]][move[2][3]] == move[3]
 
 
 def test_invalid_char_input(board, monkeypatch):  # pylint: disable=redefined-outer-name
@@ -88,8 +89,9 @@ def test_invalid_char_input(board, monkeypatch):  # pylint: disable=redefined-ou
     board.next_move()
     monkeypatch.setattr("sys.stdin", io.StringIO(input[3]))
     controller.move(sub_board_position)
-    assert board.boards[move[0][0]][move[0][1]].board_state[move[0][2]][move[0][3]] == move[1] and board.boards[move[2][0]][move[2][1]
-                                                                                                                            ].board_state[move[2][2]][move[2][3]] == move[3]
+    assert board.boards[move[0][0]][move[0][1]].board_state[move[0][2]]\
+        [move[0][3]] == move[1] and board.boards[move[2][0]][move[2][1]]\
+            .board_state[move[2][2]][move[2][3]] == move[3]
 
 
 def test_invalid_num_input(board, monkeypatch):  # pylint: disable=redefined-outer-name
@@ -115,8 +117,9 @@ def test_invalid_num_input(board, monkeypatch):  # pylint: disable=redefined-out
     board.next_move()
     monkeypatch.setattr("sys.stdin", io.StringIO(input[3]))
     controller.move(sub_board_position)
-    assert board.boards[move[0][0]][move[0][1]].board_state[move[0][2]][move[0][3]] == move[1] and board.boards[move[2][0]][move[2][1]
-                                                                                                                            ].board_state[move[2][2]][move[2][3]] == move[3]
+    assert board.boards[move[0][0]][move[0][1]].board_state[move[0][2]]\
+        [move[0][3]] == move[1] and board.boards[move[2][0]][move[2][1]]\
+            .board_state[move[2][2]][move[2][3]] == move[3]
 
 
 def test_invalid_square_input(board, monkeypatch):  # pylint: disable=redefined-outer-name
