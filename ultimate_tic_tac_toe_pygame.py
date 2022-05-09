@@ -28,6 +28,8 @@ def main():
 
     pygame.display.flip()
 
+    # Create variables that will change the pygame loop cycle depending
+    # on the game state
     running = True
 
     first_board_chosen = False
@@ -42,15 +44,18 @@ def main():
 
     my_font = pygame.font.SysFont('Comic Sans MS', 30)
 
+    # Sets window dimensions of pygame screen
+    width = 520
+    height = 520
+
     while running:
 
+        # Run AI move function if game is in singleplayer mode
         if board.current_move == "O" and is_ai:
             current_board_position, board_chosen = ai_move(
                 current_board_position, board, ai_player)
 
-        width = 520
-        height = 520
-
+        # Gets mouse position to see what boards/squares the user is selecting
         x_pos, y_pos = pygame.mouse.get_pos()
 
         ultimate_col = int  # pylint: disable=redefined-outer-name
@@ -73,11 +78,15 @@ def main():
         if not start:
             draw_menu()
 
+        # Checks for mouse clicks or if user exits
         for event in pygame.event.get():
+
+            # User exits
             if event.type == pygame.QUIT:  # pylint: disable=no-member
                 running = False
                 continue
 
+            # User selects multiplayer or singleplayer
             if event.type == pygame.MOUSEBUTTONDOWN and not start:  # pylint: disable=no-member
 
                 if width/2 - 250 <= mouse[0] <= width/2 - 150 and \
@@ -93,9 +102,12 @@ def main():
                 pygame.draw.rect(screen, (255, 255, 255),
                                  pygame.Rect(0, 520, 520, 80))
 
+            # Handles user's move
             if event.type == pygame.MOUSEBUTTONUP and start and not is_won:  # pylint: disable=no-member
                 if y_pos > 519:
                     break
+
+                # First board selection
                 if not first_board_chosen:
                     sub_board_position = (ultimate_row // 3, ultimate_col // 3)
                     player.choose_board(sub_board_position)
@@ -104,6 +116,7 @@ def main():
                     board_chosen = True
                     current_board_text(current_board_position)
 
+                # All other board selections
                 elif not board_chosen:
                     sub_board_position = (ultimate_row // 3, ultimate_col // 3)
                     sub_board = board.boards[sub_board_position[0]
@@ -118,6 +131,7 @@ def main():
                     board_chosen = True
                     current_board_text(current_board_position)
 
+                # Square selection
                 else:
                     sub_board_position = (ultimate_row // 3, ultimate_col // 3)
                     if sub_board_position != current_board_position:
@@ -136,10 +150,12 @@ def main():
                     except ValueError:
                         break
 
+                    # Handles marking the window with X's and O's
                     if board.current_move == "X":
                         mark_square((ultimate_row, ultimate_col), "X")
                     else:
                         mark_square((ultimate_row, ultimate_col), "O")
+
                     if board.check_win():
                         win_text(board.current_move)
                         is_won = True
@@ -148,11 +164,17 @@ def main():
                         tie_text()
                         is_won = True
                         continue
+
                     board.next_move()
+
                     current_board_position = sub_board_square_position
                     current_board_text(current_board_position)
                     sub_board = board.boards[current_board_position[0]
                                              ][current_board_position[1]]
+
+                    # Check if next board is available, if not cycle will make
+                    # the user (or AI) choose another board by setting
+                    # board_chosen to False.
                     if not board.check_board_availability(sub_board):
                         board_chosen = False
                         break
