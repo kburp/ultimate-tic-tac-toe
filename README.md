@@ -4,8 +4,18 @@
 
 
 ## Where to Get Started
-* Go to (isnert instructions) to get started!
-* Once started, select whether you want to play single or multiplayer.
+* First download the game by either cloning the ultimate-tic-tac-toe repository, or just downloading the files.
+* With your terminal of choice, navigate into the ultimate-tic-tac-toe directory (use cd if on windows).
+* There are two versions of ultimate tic-tac-toe you can play: text or graphical.
+
+#### In case you wanted to play the text version
+* While in the ultimate-tic-tac-toe directory, type in python ultimate_tic_tac_toe_game.py to start the text version.
+* Choose if you want to play singleplayer (against an AI) or multiplayer by following the first prompt.
+* Type in board coordinates and square coordinates by specifying a row and column. Example: When prompted to choose a board the input 1 1 will select the board in the middle. When prompted to choose a square within a board the input 0 0 will select the square in the top left.
+
+#### Graphical Version Setup
+* To start the graphical game, type in python ultimate_tic_tac_toe_pygame.py in the terminal (remember you have to be in ultimate-tic-tac-toe directory.
+* Choose singleplayer (against an AI) or multiplayer by clicking the 1 player or 2 player button.
 
 ![image](https://github.com/olincollege/ultimate-tic-tac-toe/blob/main/images/ss1.jpg?raw=true)
 
@@ -57,14 +67,19 @@ https://github.com/olincollege/ultimate-tic-tac-toe
 ## Creators
 
 ### Marc Eftimie
+* From Laguna Beach, California
+* Student at Olin College of Engineering studying electrical and computer engineering.
+* My favorite food is fettuccine alfredo pasta (from trader joes).
 
 ### Kenta Burpee
 * From Tokyo, Japan
 * Student at Olin College of Engineering studying electrical and computer engineering.
+* My favorite food is pork and kimchi fried rice.
 
 ### Satchel Sevenau
 * From Bay Area, CA.
 * Student at Olin College of Engineering studying engineering with computing.
+* My favorite food is tacos.
 
 ## External Resources Used:
 * Home page of pygame documentation: https://www.pygame.org/docs/
