@@ -7,7 +7,7 @@
 * Go to (isnert instructions) to get started!
 * Once started, select whether you want to play single or multiplayer.
 
-insert photo
+![alt text](https://github.com/olincollege/ultimate-tic-tac-toe/blob/main/images/ss1.jpg)
 
 ## How to Play
 
@@ -17,25 +17,30 @@ insert photo
 
 * First player selects what large section they want to start in, then selects a section on the smaller board to place the first mark.
 
+![alt text](https://github.com/olincollege/ultimate-tic-tac-toe/blob/main/images/ss2.jpg)
+
+![alt text](https://github.com/olincollege/ultimate-tic-tac-toe/blob/main/images/ss3.1.jpg)
+
 * The second player then has to play on the regular Tic Tac Toe board, that lies in the section corresponding with the spot the first player placed their mark in.
 
-insert photos
+![alt text](https://github.com/olincollege/ultimate-tic-tac-toe/blob/main/images/ss3.2.jpg)
+
+![alt text](https://github.com/olincollege/ultimate-tic-tac-toe/blob/main/images/ss3.jpg)
 
 * The players then keep alternating back and forth, playing on the board that corresponds with the other players move.
 * You win a board like a regular Tic Tac Toe game, with three marks that lie in a row, column or diagonal.
 
-insert photo
+![alt text](https://github.com/olincollege/ultimate-tic-tac-toe/blob/main/images/ss6.jpg)
 
 * You win the Ultimate Tic Tac Toe game, by winning three boards that lie in a row, column or diagonal.
 
-insert photo
+![alt text](https://github.com/olincollege/ultimate-tic-tac-toe/blob/main/images/ss5.jpg)
 
 ##### Other Rules
 
 * If the previous players mark corresponds to a board that is completely full, or has been won by a player, then the current player can play any board they want.
 
-insert photo
-
+![alt text](https://github.com/olincollege/ultimate-tic-tac-toe/blob/main/images/ss4.jpg)
 * If no one can win three boards that lie in a row, column or diagonal, then the Ultimate Tic Tac Toe game results in a draw.
 
 ## Playing Features
@@ -58,7 +63,6 @@ https://github.com/olincollege/ultimate-tic-tac-toe
 ### Satchel Sevenau
 * From Bay Area, CA.
 * Student at Olin College of Engineering studying engineering with computing.
-* Favorite ice cream flavor is chocolate.
 
 ## External Resources Used:
 * Home page of pygame documentation: https://www.pygame.org/docs/
