@@ -27,6 +27,7 @@
 
 * First player selects what large section they want to start in, then selects a section on the smaller board to place the first mark.
 
+<img src="images/ss2.jpg" width="30%" height="30%">
 ![alt text](https://github.com/olincollege/ultimate-tic-tac-toe/blob/main/images/ss2.jpg)
 
 ![alt text](https://github.com/olincollege/ultimate-tic-tac-toe/blob/main/images/ss3.1.jpg)
