@@ -289,7 +289,6 @@ class GraphicalController(UltimateTicTacToeController):
                 return sub_board_square_position
             raise ValueError
         except ValueError as v_err:
-            print(f"{sub_board_square_position} was not a valid move.")
             raise ValueError from v_err
 
     def choose_board(self, sub_board_position):
@@ -312,5 +311,4 @@ class GraphicalController(UltimateTicTacToeController):
                 return sub_board_position
             raise ValueError
         except ValueError as v_err:
-            print(f"{sub_board_position} was not a valid move.")
             raise ValueError from v_err

@@ -53,9 +53,11 @@ https://github.com/olincollege/ultimate-tic-tac-toe
 
 ### Marc Eftimie
 ### Kenta Burpee
+* From Tokyo, Japan
+* Student at Olin College of Engineering studying electrical and computer engineering.
 ### Satchel Sevenau
 * From Bay Area, CA.
-* Student at Olin College of Engineering studying Engineering with Computing.
+* Student at Olin College of Engineering studying engineering with computing.
 * Favorite ice cream flavor is chocolate.
 
 ## External Resources Used:
