@@ -57,9 +57,11 @@ https://github.com/olincollege/ultimate-tic-tac-toe
 ## Creators
 
 ### Marc Eftimie
+
 ### Kenta Burpee
 * From Tokyo, Japan
 * Student at Olin College of Engineering studying electrical and computer engineering.
+
 ### Satchel Sevenau
 * From Bay Area, CA.
 * Student at Olin College of Engineering studying engineering with computing.
