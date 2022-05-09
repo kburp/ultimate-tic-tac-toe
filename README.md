@@ -7,7 +7,7 @@
 * Go to (isnert instructions) to get started!
 * Once started, select whether you want to play single or multiplayer.
 
-![alt text](https://github.com/olincollege/ultimate-tic-tac-toe/blob/main/images/ss1.jpg?raw=true)
+![alt text](/images/ss1.jpg)
 
 ## How to Play
 
