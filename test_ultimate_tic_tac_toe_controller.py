@@ -75,8 +75,7 @@ def test_invalid_char_input(board, monkeypatch):  # pylint: disable=redefined-ou
         board: The UltimateTicTacToeBoard instance used.
         monkeypatch: An object that helps to simulate user input.
     """
-    input = ("hello world", "1 1", "1 1",
-             "2 2")  # pylint: disable=redefined-builtin
+    input = ("hello world", "1 1", "1 1", "2 2")  # pylint: disable=redefined-builtin
     move = ((1, 1, 1, 1), "X", (1, 1, 2, 2), "O")
 
     controller = TextController(board)
@@ -103,8 +102,7 @@ def test_invalid_num_input(board, monkeypatch):  # pylint: disable=redefined-out
         board: The UltimateTicTacToeBoard instance used.
         monkeypatch: An object that helps to simulate user input.
     """
-    input = ("3948 -3944", "1 1", "1 1",
-             "2 2")  # pylint: disable=redefined-builtin
+    input = ("3948 -3944", "1 1", "1 1", "2 2")  # pylint: disable=redefined-builtin
     move = ((1, 1, 1, 1), "X", (1, 1, 2, 2), "O")
 
     controller = TextController(board)
@@ -155,7 +153,7 @@ def test_invalid_mark_on_won_subboard(board, monkeypatch):  # pylint: disable=re
         board: The UltimateTicTacToeBoard instance used.
         monkeypatch: An object that helps to simulate user input.
     """
-    input = ("1 1", "1 1", "2 2", "1 1", "2 1",
+    input = ("1 1", "1 1", "2 2", "1 1", "2 1", \
              "1 1", "2 0", "1 1", "1 1", "0 0", "0 0")  # pylint: disable=redefined-builtin
     move = ((0, 0, 0, 0), "O")
 
