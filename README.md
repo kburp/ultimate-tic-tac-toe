@@ -4,7 +4,10 @@
 
 
 ## Where to Get Started
-To play a few rounds against friends, or if you're alone, against AI, go to (instert section in ReadMe) to get started!
+* Go to (isnert instructions) to get started!
+* Once started, select whether you want to play single or multiplayer.
+
+insert photo
 
 ## How to Play
 
@@ -13,8 +16,6 @@ To play a few rounds against friends, or if you're alone, against AI, go to (ins
 ##### The rules are as follows:
 
 * First player selects what large section they want to start in, then selects a section on the smaller board to place the first mark.
-
-insert photos
 
 * The second player then has to play on the regular Tic Tac Toe board, that lies in the section corresponding with the spot the first player placed their mark in.
 
@@ -36,8 +37,6 @@ insert photo
 insert photo
 
 * If no one can win three boards that lie in a row, column or diagonal, then the Ultimate Tic Tac Toe game results in a draw.
-
-insert photo
 
 ## Playing Features
 
