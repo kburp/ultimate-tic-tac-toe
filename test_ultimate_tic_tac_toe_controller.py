@@ -16,7 +16,7 @@ def board():
     return UltimateTicTacToeBoard()
 
 
-def test_one_move(board, monkeypatch): # pylint: disable=redefined-outer-name
+def test_one_move(board, monkeypatch):  # pylint: disable=redefined-outer-name
     """
     Test that selecting a subboard and a square in that board marks the
     appropriate square.
@@ -25,7 +25,7 @@ def test_one_move(board, monkeypatch): # pylint: disable=redefined-outer-name
         board: The UltimateTicTacToeBoard instance used.
         monkeypatch: An object that helps to simulate user input.
     """
-    input = ("1 1", "1 1") # pylint: disable=redefined-builtin
+    input = ("1 1", "1 1")  # pylint: disable=redefined-builtin
     move = ((1, 1, 1, 1), "X")
 
     controller = TextController(board)
@@ -36,11 +36,11 @@ def test_one_move(board, monkeypatch): # pylint: disable=redefined-outer-name
     controller.move(sub_board_position)
 
     assert board.boards[move[0][0]][move[0][1]
-                                    ]._board_state[move[0][2]][move[0][3]] ==\
-                                    move[1]
+                                    ].board_state[move[0][2]][move[0][3]] ==\
+        move[1]
 
 
-def test_two_moves(board, monkeypatch): # pylint: disable=redefined-outer-name
+def test_two_moves(board, monkeypatch):  # pylint: disable=redefined-outer-name
     """
     Test that selecting a subboard and selecting a square from two player
     marks the appropriate squares.
@@ -49,7 +49,7 @@ def test_two_moves(board, monkeypatch): # pylint: disable=redefined-outer-name
         board: The UltimateTicTacToeBoard instance used.
         monkeypatch: An object that helps to simulate user input.
     """
-    input = ("1 1", "1 1", "2 2") # pylint: disable=redefined-builtin
+    input = ("1 1", "1 1", "2 2")  # pylint: disable=redefined-builtin
     move = ((1, 1, 1, 1), "X", (1, 1, 2, 2), "O")
 
     controller = TextController(board)
@@ -61,12 +61,11 @@ def test_two_moves(board, monkeypatch): # pylint: disable=redefined-outer-name
     board.next_move()
     monkeypatch.setattr("sys.stdin", io.StringIO(input[2]))
     controller.move(sub_board_position)
-    assert board.boards[move[0][0]][move[0][1]]._board_state[move[0][2]]\
-        [move[0][3]] == move[1] and board.boards[move[2][0]][move[2][1]\
-            ]._board_state[move[2][2]][move[2][3]] == move[3]
+    assert board.boards[move[0][0]][move[0][1]].board_state[move[0][2]][move[0][3]] == move[1] and board.boards[move[2][0]][move[2][1]
+                                                                                                                            ].board_state[move[2][2]][move[2][3]] == move[3]
 
 
-def test_invalid_char_input(board, monkeypatch): # pylint: disable=redefined-outer-name
+def test_invalid_char_input(board, monkeypatch):  # pylint: disable=redefined-outer-name
     """
     Test that an invalid input containing non-numeric characters
     is gracefully handled without uncaught exceptions.
@@ -75,7 +74,8 @@ def test_invalid_char_input(board, monkeypatch): # pylint: disable=redefined-out
         board: The UltimateTicTacToeBoard instance used.
         monkeypatch: An object that helps to simulate user input.
     """
-    input = ("hello world", "1 1", "1 1", "2 2") # pylint: disable=redefined-builtin
+    input = ("hello world", "1 1", "1 1",
+             "2 2")  # pylint: disable=redefined-builtin
     move = ((1, 1, 1, 1), "X", (1, 1, 2, 2), "O")
 
     controller = TextController(board)
@@ -88,12 +88,11 @@ def test_invalid_char_input(board, monkeypatch): # pylint: disable=redefined-out
     board.next_move()
     monkeypatch.setattr("sys.stdin", io.StringIO(input[3]))
     controller.move(sub_board_position)
-    assert board.boards[move[0][0]][move[0][1]]._board_state[move[0][2]]\
-        [move[0][3]] == move[1] and board.boards[move[2][0]][move[2][1]\
-            ]._board_state[move[2][2]][move[2][3]] == move[3]
+    assert board.boards[move[0][0]][move[0][1]].board_state[move[0][2]][move[0][3]] == move[1] and board.boards[move[2][0]][move[2][1]
+                                                                                                                            ].board_state[move[2][2]][move[2][3]] == move[3]
 
 
-def test_invalid_num_input(board, monkeypatch): # pylint: disable=redefined-outer-name
+def test_invalid_num_input(board, monkeypatch):  # pylint: disable=redefined-outer-name
     """
     Test that an invalid input containing numeric characters out of the
     row and column index are gracefully handled without uncaught exceptions.
@@ -102,7 +101,8 @@ def test_invalid_num_input(board, monkeypatch): # pylint: disable=redefined-oute
         board: The UltimateTicTacToeBoard instance used.
         monkeypatch: An object that helps to simulate user input.
     """
-    input = ("3948 -3944", "1 1", "1 1", "2 2") # pylint: disable=redefined-builtin
+    input = ("3948 -3944", "1 1", "1 1",
+             "2 2")  # pylint: disable=redefined-builtin
     move = ((1, 1, 1, 1), "X", (1, 1, 2, 2), "O")
 
     controller = TextController(board)
@@ -115,12 +115,11 @@ def test_invalid_num_input(board, monkeypatch): # pylint: disable=redefined-oute
     board.next_move()
     monkeypatch.setattr("sys.stdin", io.StringIO(input[3]))
     controller.move(sub_board_position)
-    assert board.boards[move[0][0]][move[0][1]]._board_state[move[0][2]]\
-        [move[0][3]] == move[1] and board.boards[move[2][0]][move[2][1]\
-            ]._board_state[move[2][2]][move[2][3]] == move[3]
+    assert board.boards[move[0][0]][move[0][1]].board_state[move[0][2]][move[0][3]] == move[1] and board.boards[move[2][0]][move[2][1]
+                                                                                                                            ].board_state[move[2][2]][move[2][3]] == move[3]
 
 
-def test_invalid_square_input(board, monkeypatch): # pylint: disable=redefined-outer-name
+def test_invalid_square_input(board, monkeypatch):  # pylint: disable=redefined-outer-name
     """
     Test that a square that has already been marked cannot be marked again.
 
@@ -128,7 +127,7 @@ def test_invalid_square_input(board, monkeypatch): # pylint: disable=redefined-o
         board: The UltimateTicTacToeBoard instance used.
         monkeypatch: An object that helps to simulate user input.
     """
-    input = ("1 1", "1 1", "1 1", "1 1") # pylint: disable=redefined-builtin
+    input = ("1 1", "1 1", "1 1", "1 1")  # pylint: disable=redefined-builtin
     move = ((1, 1, 1, 1), "X")
 
     controller = TextController(board)
@@ -141,11 +140,11 @@ def test_invalid_square_input(board, monkeypatch): # pylint: disable=redefined-o
     board.next_move()
     monkeypatch.setattr("sys.stdin", io.StringIO(input[3]))
     assert board.boards[move[0][0]][move[0][1]
-                                    ]._board_state[move[0][2]][move[0][3]]\
-                                        == move[1]
+                                    ].board_state[move[0][2]][move[0][3]]\
+        == move[1]
 
 
-def test_invalid_mark_on_won_subboard(board, monkeypatch): # pylint: disable=redefined-outer-name
+def test_invalid_mark_on_won_subboard(board, monkeypatch):  # pylint: disable=redefined-outer-name
     """
     Test that a square that has already been marked cannot be marked again.
 
@@ -154,7 +153,7 @@ def test_invalid_mark_on_won_subboard(board, monkeypatch): # pylint: disable=red
         monkeypatch: An object that helps to simulate user input.
     """
     input = ("1 1", "1 1", "2 2", "1 1", "2 1",
-             "1 1", "2 0", "1 1", "1 1", "0 0", "0 0") # pylint: disable=redefined-builtin
+             "1 1", "2 0", "1 1", "1 1", "0 0", "0 0")  # pylint: disable=redefined-builtin
     move = ((0, 0, 0, 0), "O")
 
     controller = TextController(board)
@@ -187,5 +186,5 @@ def test_invalid_mark_on_won_subboard(board, monkeypatch): # pylint: disable=red
     board.next_move()
 
     assert board.boards[move[0][0]][move[0][1]
-                                    ]._board_state[move[0][2]][move[0][3]] ==\
-                                        ' '
+                                    ].board_state[move[0][2]][move[0][3]] ==\
+        ' '
